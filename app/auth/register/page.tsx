@@ -1,0 +1,141 @@
+import Link from "next/link"
+import { ArrowLeft, Lock, Mail, MapPin, User } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Separator } from "@/components/ui/separator"
+
+export default function RegisterPage() {
+  return (
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-emerald-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div className="container flex flex-1 items-center justify-center py-12">
+        <Card className="mx-auto w-full max-w-md">
+          <CardHeader className="space-y-1 text-center">
+            <Link href="/" className="mx-auto mb-4 flex w-fit items-center text-emerald-600 hover:underline">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Home
+            </Link>
+            <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
+            <CardDescription>Enter your information to get started</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="first-name">First Name</Label>
+                <div className="relative">
+                  <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input id="first-name" placeholder="John" className="pl-10" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="last-name">Last Name</Label>
+                <Input id="last-name" placeholder="Doe" />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input id="email" type="email" placeholder="your.email@example.com" className="pl-10" />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input id="password" type="password" placeholder="••••••••" className="pl-10" />
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Password must be at least 8 characters long and include a number and a special character.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="city">City of Interest</Label>
+              <div className="relative">
+                <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Select>
+                  <SelectTrigger id="city" className="pl-10">
+                    <SelectValue placeholder="Select a city" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="isfahan">Isfahan</SelectItem>
+                    <SelectItem value="shiraz">Shiraz</SelectItem>
+                    <SelectItem value="yazd">Yazd</SelectItem>
+                    <SelectItem value="tabriz">Tabriz</SelectItem>
+                    <SelectItem value="mashhad">Mashhad</SelectItem>
+                    <SelectItem value="rasht">Rasht</SelectItem>
+                    <SelectItem value="kerman">Kerman</SelectItem>
+                    <SelectItem value="kashan">Kashan</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="terms" />
+              <label
+                htmlFor="terms"
+                className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                I agree to the{" "}
+                <Link href="/terms" className="text-emerald-600 hover:underline">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link href="/privacy" className="text-emerald-600 hover:underline">
+                  Privacy Policy
+                </Link>
+              </label>
+            </div>
+            <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700">
+              Create Account
+            </Button>
+            <div className="relative flex items-center justify-center">
+              <Separator className="w-full" />
+              <span className="absolute bg-card px-2 text-xs text-muted-foreground">OR</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <Button variant="outline">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="mr-2 h-4 w-4"
+                  fill="currentColor"
+                >
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                  <path d="M1 1h22v22H1z" fill="none" />
+                </svg>
+                Google
+              </Button>
+              <Button variant="outline">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="mr-2 h-4 w-4"
+                  fill="currentColor"
+                >
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+                </svg>
+                Facebook
+              </Button>
+            </div>
+          </CardContent>
+          <CardFooter className="flex flex-col space-y-4">
+            <div className="text-center text-sm">
+              Already have an account?{" "}
+              <Link href="/auth/login" className="text-emerald-600 hover:underline">
+                Sign in
+              </Link>
+            </div>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+  )
+}
